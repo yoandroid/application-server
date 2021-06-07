@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor de aplicaciones</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jquery/script.js"></script>   
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand portada" href="#">Servidor de Aplicaciones</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Fundamentos teóricos
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item glosario" href="#">Glosario</a>
+                <a class="dropdown-item servidor" href="#">¿Qué es un servidor?</a>
+                <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item tipos-servidores" href="#">Tipos de servidores</a>
+                <a class="dropdown-item cliente-servidor" href="#">Modelo Cliente-Servidor</a>
+                <a class="dropdown-item servidor-web" href="#">Servidor web</a>
+                <a class="dropdown-item app-server" href="#">Servidor de aplicaciones</a>
+                <a class="dropdown-item comparacion" href="#">Comparación SW vs SA</a>
+                <a class="dropdown-item contenedor-web" href="#">Contenedor web</a>
+                <a class="dropdown-item resumen" href="#">Resumen</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tomcat" href="#">Tomcat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link wildfly" href="#">WildFly</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="container" id="portada">
+      <h1 class="lead text-center">Servidor de Aplicaciones</h1>
+      <img class="rounded mx-auto d-block" src="img/apps.png" alt="portada.png">
+    </div>
+
+    <div class="container d-none" id="glosario">
+      <h1 class="lead text-center">Glosario</h1>
+      <div class="row mt-5">
+        <div class="col-md">
+          <p class="lead"><b>Red:</b> una red o "network", es la tecnología que permite la <b>comunicación entre computadoras</b>, en otras palabras, que puedan enviar y recibir datos (LAN, WLAN, WAN, VLAN, Internet).</p>
+          <p class="lead"><b>Paquetes:</b> un paquete es un <b>bloque de información</b> que es enviado traves de las redes.</p>
+          <p class="lead"><b>Protocolo:</b> es el <b>conjunto de reglas</b> que las computadoras deben seguir y respetar para poder comunicarse (TCP/IP).</p>
+          <p class="lead"><b>Latencia:</b> es el <b>tiempo de espera</b> que tarda un paquete de datos en llegar a su destino.</p>
+          <p class="lead"><b>Nodo:</b> es una <b>computadora</b> conectada a una red, formando parte de ella.</p>
+          <p class="lead"><b>Dirección IP:</b> es un <b>código numérico</b> que identifica a una computadora dentro de una red.</p>
+          <p class="lead"><b>Dominio:</b> un dominio de internet es un <b>nombre único</b> fácil de encontrar que al ser procesado (Servidor DNS) se traduce en una dirección IP.</p>
+        </div>
+        <div class="col-md">
+          <img class="rounded mx-auto d-block" src="img/glosario.png" alt="glosario.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-none" id="servidor">
+      <h1 class="lead text-center">¿Qué es un servidor?</h1>
+      <div class="row mt-4">
+        <div class="col-md-8">
+          <p class="lead mt-4"><b>Físicamente</b>, un servidor es una gran computadora que carece de perifericos, y en lugar de gabinetes, sus componentes son almacenados en "racks".</p>
+        </div>
+        <div class="col-md">
+          <img class="rounded mx-auto d-block" src="img/server-fisico.png" alt="servidor-fisico.png">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <img class="rounded mx-auto d-block" src="img/server-concepto.png" alt="servidor-concepto.png">
+        </div>
+        <div class="col-md-8">
+          <p class="lead mt-5"><b>Conceptualmente</b>, un servidor es un equipo diseñado para procesar solicitudes y "servir" información a otros equipos llamados "clientes".</p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md">
+          <ul>
+            <li class="lead">Servidor Dedicado</li>
+            <li class="lead">Servidor Compartido</li>
+            <li class="lead">Servidor Virtual Privado (VPS)</li>
+            <li class="lead"><b>Host</b></li>
+          </ul>
+        </div>
+        <div class="col-md-8">
+          <img class="rounded mx-auto d-block" src="img/host.jpg" alt="host.jpg">
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-none" id="cliente-servidor">
+      <h1 class="lead text-center">Modelo Cliente-Servidor</h1>
+      <div class="row">
+        <p class="lead mt-4"> El modelo cliente servidor es una <b>arquitectura de software</b> en el cual un dispositvo llamado cliente se comunica con el servidor a traves de peticiones. En este modelo, el servidor es quien maneja todos los recursos, y el que se encarga de estar a la "escucha" del cliente para procesar sus peticiones y entregarle una respuesta.</p>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md">
+          <img class="rounded mx-auto d-block mt-5" src="img/modelo-1.png" alt="modelo-1.png">
+        </div>
+        <div class="col-md">
+          <div class="cliente-servidor-multiple mx-auto d-block"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-none" id="tipos-servidores">
+      <h1 class="lead text-center">Tipos de Servidores</h1>
+      <div class="row mt-4">
+        <div class="col-md-8">
+          <img class="rounded mx-auto d-block" src="img/tipos-servidores.png" alt="tipos-servidores.png">
+        </div>
+        <div class="col-md">
+          <ul>
+            <li class="lead">Servidor de Email</li>
+            <li class="lead">Servidor de Base de Datos</li>
+            <li class="lead">Servidor Cloud</li>
+            <li class="lead">Servidor DNS</li>
+            <li class="lead">Servidor Telnet</li>
+            <li class="lead">Servidor Proxy</li>
+            <li class="lead">Servidor Audio/Video</li>
+            <li class="lead">Servidor de Juegos</li>
+            <li class="lead">Servidor de Chat</li>
+            <li class="lead">...</li>
+            <li class="lead">...</li>
+            <li class="lead">...</li>
+            <li class="lead"><b>Servidor Web</b></li>
+            <li class="lead"><b>Servidor de Aplicaciones</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-none" id="servidor-web">
+      <h1 class="lead text-center">Servidor web</h1>
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <img class="rounded mx-auto d-block" src="img/web-server.png" alt="web-server.png">
+        </div>
+        <div class="col-md">
+          <p class="lead"><b>Servidor web:</b> es un <b>programa informático</b> diseñado para responder las peticiones de un cliente. Los servidores web utilizan el protocolo HTTP para comunicarse con el cliente. La respuesta se entrega en forma de ficheros que pueden ser: documentos HTML, XML, PDF, imagenes JPG, PNG, SVG, videos MP4, AVI, WMV, audios MP3, WAV, WMA.</p>
+          <p class="lead mt-4 text-info"><b>Keywords:</b> petición, respuesta, HTTP, contenido estático.</p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <p class="lead mt-4">Etapas del proceso de comunicación:</p>
+          <ul>
+            <li class="lead">Cliente establece la conexión</li>
+            <li class="lead">El servidor resuelve la petición</li>
+            <li class="lead">Cliente interpreta la respuesta</li>
+            <li class="lead">Cierre de conexión</li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <img class="rounded mx-auto d-block mt-4" src="img/servidor-web.png" alt="servidor-web.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-none" id="app-server">
+      <h1 class="lead text-center">Servidor de aplicaciones</h1>
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <img class="rounded mx-auto d-block" src="img/app-server.png" alt="app-server.png">
+        </div>
+        <div class="col-md">
+          <p class="lead"><b>Servidor de aplicaciones:</b> es un <b>programa informático</b> diseñado para ejecutar aplicaciones. Permite la interacción entre el usuario final/cliente y el código de la aplicación del lado del servidor, conocido comunmente como "lógica empresarial" (bussiness logic). La ejecución de ésta se traduce finalmente en contenido dinámico que se despliega en la página o aplicación web.</p>
+          <p class="lead mt-4 text-info"><b>Keywords:</b> lógica de negocio, contenido dinámico.</p>
+        </div>
+      </div>
+      <div class="row mt-1">
+        <div class="col-md">
+          <img class="rounded mx-auto d-block mt-4" src="img/aplication-server.png" alt="aplication-server.png">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container d-none" id="comparacion">
+      <h1 class="lead text-center">Comparación</h1>
+      <div class="row">
+        <div class="col-md border-right border-info">
+          <h2 class="lead text-center">Servidor web</h2>
+          <img class="rounded mx-auto d-block mb-4" src="img/web-server.png" alt="web-server.png">
+          <ul>
+            <li class="lead">Entrega contenido estático</li>
+            <li class="lead">Utiliza protocolos HTTP</li>
+            <li class="lead">Sirve solo aplicaciones basadas en la web</li>
+            <li class="lead">No tiene soporte para subprocesos múltiples, admite una solicitud a la vez</li>
+            <li class="lead">Fecilita el tráfico web que no requiere muchos recursos</li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <h2 class="lead text-center">Servidor de aplicaciones</h2>
+          <img class="rounded mx-auto d-block mb-4" src="img/app-server.png" alt="app-server.png">
+          <ul>
+            <li class="lead">Entrega contenido dinámico</li>
+            <li class="lead">Utiliza diversos protocolos incluido HTTP, tales como CGI (conexión servidor web - aplicación externa)</li>
+            <li class="lead">Puede servir aplicaciones web y empresariales</li>
+            <li class="lead">Permite subprocesos múltiples, admite varias solicitudes en paralelo</li>
+            <li class="lead">Facilita procesos de ejecución más larga que consumen muchos recursos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-none" id="contenedor-web">
+      <h1 class="lead text-center">Contenedor web</h1>
+      <img class="rounded mx-auto d-block" src="img/contenedor-web.png" alt="contenedor-web.png">
+    </div>
+
+    <div class="container d-none" id="resumen">
+      <h1 class="lead text-center mb-1">Resumen</h1>
+      <img class="rounded mx-auto d-block" src="img/resumen.png" alt="resumen.png">
+    </div>
+
+    <div class="container d-none" id="tomcat">
+      <h1 class="lead text-center">Apache Tomcat</h1>
+      <div class="row mt-4">
+        <div class="col-md-5">
+          <img class="rounded mx-auto d-block mt-5" src="img/tomcat.png" alt="tomcat.png">
+          <a class="d-flex justify-content-center mt-4" href="http://tomcat.apache.org/">Apache Tomcat Official Page</a>
+        </div>
+        <div class="col-md">
+          <h2>¿Qué es?</h2>
+          <ul>
+            <li class="lead">Es un contenedor web con soporte de servlets y JSP</li>
+            <li class="lead">Desarrollado bajo el proyecto Jakarta</li>
+            <li class="lead">Desarrollado y actualizado por miembros de apache software foundation y voluntarios intdependientes</li>
+          </ul>
+
+          <h2>Ventajas</h2>
+          <ul>
+            <li class="lead">Es gratis y de código abierto</li>
+            <li class="lead">Instalación y configuración simple</li>
+            <li class="lead">Altamente escalable y adaptable a través de módulos</li>
+            <li class="lead">Las funciones integradas se utilizan para la autenticación y verificación del usuario</li>
+            <li class="lead">Se admiten lenguajes como Perl, PHP y Python, además de Java.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-none" id="wildfly">
+      <h1 class="lead text-center">WildFly (JBoss)</h1>
+      <div class="row mt-4">
+        <div class="col-md">
+          <img class="rounded mx-auto d-block mt-4" src="img/wildfly.png" alt="wildfly.png">
+          <a class="d-flex justify-content-center mt-4" href="https://www.wildfly.org/">WildFly Official Page</a>
+        </div>
+        <div class="col-md">
+          <h2>¿Qué es?</h2>
+          <ul>
+            <li class="lead">Servidor de aplicaciones Java</li>
+            <li class="lead">Libre de código abierto</li>
+            <li class="lead">Puede ser utilizado en cualquier sistema operativo</li>
+          </ul>
+
+          <h2>Características principales</h2>
+          <ul>
+            <li class="lead">Rápida puesta en marcha</li>
+            <li class="lead">Escalabilidad</li>
+            <li class="lead">Motor capaz de configurarse a las necesidades</li>
+            <li class="lead">Administración unificada</li>
+            <li class="lead">Fácilmente testeable.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
